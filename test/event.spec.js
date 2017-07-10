@@ -1,21 +1,22 @@
 process.env.NODE_ENV = 'test';
 
-const chai = require('chai'),
-			chaiHttp = require('chai-http'),
-			app = require('../src'),
-			should = chai.should(),
-			server = 'http://localhost:8080/api/v1';
+const chai = require('chai');
+const chaiHttp = require('chai-http');
+const app = require('../src');
+const should = chai.should();
 
 chai.use(chaiHttp);
 
-describe('Events', () => {;
-	describe('/GET event', () => {
-	  it('it should GET all the events', (done) => {
-			chai.request(server)
-		    .get('/')
+describe('API', () => {;
+	describe('/GET version', () => {
+	  it('it should GET the API version', (done) => {
+			chai.request(app)
+		    .get('/api')
 		    .end((err, res) => {
-			  	res.should.have.status(404);
-			  	
+			  	res.should.have.status(200);
+          res.body.should.be.a('object');
+          res.body.should.be.a('object').to.deep.equal({"version": "1.0.0"});
+
 		      done();
 		    });
 	  });
