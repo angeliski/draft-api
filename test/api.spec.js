@@ -7,7 +7,7 @@ const should = chai.should();
 
 chai.use(chaiHttp);
 
-describe('API', () => {;
+describe('API', () => {
 	describe('/GET version', () => {
 	  it('it should GET the API version', (done) => {
 			chai.request(app)
