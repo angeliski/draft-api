@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "prestart": "npm install",
-    "test": "mocha --timeout 10000",
+    "test": "mocha --timeout 10000 --reporter nyan",
     "start": "node src/index.js",
     "debug": "DEBUG=* node src/index.js"
   },
